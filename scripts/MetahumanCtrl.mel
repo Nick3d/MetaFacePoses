@@ -1,3 +1,6 @@
+//// Metahuman Face Poses - Script by Nicolas Esposito - www.enter-reality.it - esposito.n@enter-reality.it ////
+
+
 // Create UI Layout
 
 global proc MetahumanCtrl ()
@@ -7,7 +10,7 @@ global proc MetahumanCtrl ()
 // Make GUI
 
 string $toolCreate = "createTool";
-string $toolName = "UI Tool";
+string $toolName = "Metahuman Face Poses";
 
 if ( `window -exists $toolCreate` )
 {
@@ -27,19 +30,22 @@ button -label "Reset_Brows_CTRLs" -c "button_Reset_Brows_CTRLs" -backgroundColor
 button -label "Reset_Eyes_CTRLs" -c "button_Reset_Eyes_CTRLs" -backgroundColor 0.820 0.360 0.161;
 button -label "Reset_Mouth_CTRLs" -c "button_Reset_Mouth_CTRLs" -backgroundColor 0.820 0.360 0.161;
 
+// checkBox -label "PosesAutoReset"
+// -onCommand "$chkbxState = \"checked\""
+// -offCommand "$chkbxState = \"not checked\"";
+
 setParent $cH1;
 
 // Set $cH2
 
 string $cH2 = `columnLayout -adj true`;
 
-// Attach pictures to buttons
+// Buttons List
 
 frameLayout -l "Visemes" -bs "etchedIn" -cll 1 -cl 1;
 
 gridLayout -nc 8 -cwh 64 80;
 
-symbolButton -i "MetaHumanPoses/Neutral.jpg" -c "Neutral";
 symbolButton -i "MetaHumanPoses/01_TDS-Ah.jpg" -c "TDSAh";
 symbolButton -i "MetaHumanPoses/02_TDS-Ee.jpg" -c "TDSEe";
 symbolButton -i "MetaHumanPoses/03_Ee.jpg" -c "Ee";
@@ -62,7 +68,8 @@ symbolButton -i "MetaHumanPoses/19_Ww-Ew.jpg" -c "WwEw";
 symbolButton -i "MetaHumanPoses/20_Rr.jpg" -c "Rr";
 symbolButton -i "MetaHumanPoses/21_Ww-High.jpg" -c "WwHigh";
 symbolButton -i "MetaHumanPoses/22_Uh.jpg" -c "Uh";
-symbolButton -i "MetaHumanPoses/23_FV_Or.jpg" -c "FV_Or";
+symbolButton -i "MetaHumanPoses/23_FV_Or.jpg" -c "FVOr";
+symbolButton -i "MetaHumanPoses/23_FV.jpg" -c "FV";
 symbolButton -i "MetaHumanPoses/24_Ur.jpg" -c "Ur";
 symbolButton -i "MetaHumanPoses/25_FV_Ee.jpg" -c "FVEe";
 symbolButton -i "MetaHumanPoses/26_MBP.jpg" -c "MBP";
@@ -103,7 +110,6 @@ symbolButton -i "MetaHumanPoses/Surprise-03_Surprise.jpg" -c "SurpriseSurprise";
 symbolButton -i "MetaHumanPoses/Surprise-04_Shock.jpg" -c "SurpriseShock";
 
 setParent $cH1;
-
 
 frameLayout -l "ROM_Brows" -bs "etchedIn" -cll 1 -cl 1;
 
@@ -179,8 +185,6 @@ button -label "L ( Ladder )"- c "button_Ladder" -backgroundColor 0.6 0.6 0.6;
 
 setParent $cH1;
 
-
-
 // Show Window
 
 showWindow $toolCreate;
@@ -191,184 +195,7 @@ showWindow $toolCreate;
 
 // VISEMES
 
-// 01_TDS-Ah
-
-// Neutral
-
-global proc Neutral ()
-{
-setAttr "CTRL_L_brow_raiseOut.translateY" 0;
-setAttr "CTRL_R_brow_raiseIn.translateY" 0;
-setAttr "CTRL_L_brow_raiseIn.translateY" 0;
-setAttr "CTRL_R_brow_lateral.translateY" 0;
-setAttr "CTRL_L_brow_lateral.translateY" 0;
-setAttr "CTRL_R_brow_down.translateY" 0;
-setAttr "CTRL_L_brow_down.translateY" 0;
-setAttr "CTRL_L_brow_raiseOut.translateY" 0;
-setAttr "CTRL_R_brow_raiseOut.translateY" 0;
-setAttr "CTRL_L_eye.translateX" 0;
-setAttr "CTRL_R_eye.translateX" 0;
-setAttr "CTRL_L_eye.translateY" 0;
-setAttr "CTRL_R_eye.translateY" 0;
-setAttr "CTRL_C_eye.translateX" 0;
-setAttr "CTRL_C_eye.translateY" 0;
-setAttr "CTRL_R_eye_blink.translateY" 0;
-setAttr "CTRL_L_eye_blink.translateY" 0;
-setAttr "CTRL_L_nose_wrinkleUpper.translateY" 1;
-setAttr "CTRL_R_nose_wrinkleUpper.translateY" 1;
-setAttr "CTRL_L_eye_pupil.translateY" 0;
-setAttr "CTRL_R_eye_pupil.translateY" 0;
-setAttr "CTRL_L_eye_lidPress.translateY" 0;
-setAttr "CTRL_R_eye_lidPress.translateY" 0;
-setAttr "CTRL_L_eye_cheekRaise.translateY" 0;
-setAttr "CTRL_R_eye_cheekRaise.translateY" 0;
-setAttr "CTRL_L_eye_squintInner.translateY" 0;
-setAttr "CTRL_R_eye_squintInner.translateY" 0;
-setAttr "CTRL_R_ear_up.translateY" 0;
-setAttr "CTRL_L_ear_up.translateY" 0;
-setAttr "CTRL_L_nose.translateX" 0;
-setAttr "CTRL_R_nose.translateX" 0;
-setAttr "CTRL_L_nose.translateY" 0;
-setAttr "CTRL_R_nose.translateY" 0;
-setAttr "CTRL_L_mouth_stretchLipsClose.translateY" 0;
-setAttr "CTRL_R_mouth_stretchLipsClose.translateY" 0;
-setAttr "CTRL_R_mouth_suckBlow.translateY" 0;
-setAttr "CTRL_L_mouth_suckBlow.translateY" 0;
-setAttr "CTRL_C_mouth.translateX" 0;
-setAttr "CTRL_C_mouth.translateY" 0;
-setAttr "CTRL_L_mouth_cornerDepress.translateY" 0;
-setAttr "CTRL_R_mouth_cornerPull.translateY" 0;
-setAttr "CTRL_L_mouth_cornerPull.translateY" 0;
-setAttr "CTRL_R_mouth_sharpCornerPull.translateY" 0;
-setAttr "CTRL_L_mouth_sharpCornerPull.translateY" 0;
-setAttr "CTRL_R_mouth_upperLipRaise.translateY" 0;
-setAttr "CTRL_L_mouth_upperLipRaise.translateY" 0;
-setAttr "CTRL_R_mouth_dimple.translateY" 0;
-setAttr "CTRL_L_mouth_dimple.translateY" 0;
-setAttr "CTRL_L_mouth_lowerLipDepress.translateY" 0;
-setAttr "CTRL_R_mouth_lowerLipDepress.translateY" 0;
-setAttr "CTRL_R_mouth_stretch.translateY" 0;
-setAttr "CTRL_L_mouth_stretch.translateY" 0;
-setAttr "CTRL_R_mouth_cornerDepress.translateY" 0;
-setAttr "CTRL_R_mouth_stickyOuterU.translateY" 0;
-setAttr "CTRL_R_mouth_lipSticky.translateY" 0;
-setAttr "CTRL_L_mouth_lipSticky.translateY" 0;
-setAttr "CTRL_L_mouth_stickyOuterD.translateY" 0;
-setAttr "CTRL_L_mouth_stickyInnerD.translateY" 0;
-setAttr "CTRL_C_mouth_stickyD.translateY" 0;
-setAttr "CTRL_R_mouth_stickyInnerD.translateY" 0;
-setAttr "CTRL_R_mouth_stickyOuterD.translateY" 0;
-setAttr "CTRL_L_mouth_stickyOuterU.translateY" 0;
-setAttr "CTRL_L_mouth_stickyInnerU.translateY" 0;
-setAttr "CTRL_C_mouth_stickyU.translateY" 0;
-setAttr "CTRL_R_mouth_stickyInnerU.translateY" 0;
-setAttr "CTRL_L_jaw_chinCompress.translateY" 0;
-setAttr "CTRL_R_jaw_chinCompress.translateY" 0;
-setAttr "CTRL_L_jaw_ChinRaiseU.translateY" 0;
-setAttr "CTRL_R_jaw_ChinRaiseD.translateY" 0;
-setAttr "CTRL_L_jaw_ChinRaiseD.translateY" 0;
-setAttr "CTRL_R_jaw_ChinRaiseU.translateY" 0;
-setAttr "CTRL_L_mouth_towardsU.translateY" 0;
-setAttr "CTRL_R_mouth_towardsD.translateY" 0;
-setAttr "CTRL_L_mouth_towardsD.translateY" 0;
-setAttr "CTRL_R_mouth_towardsU.translateY" 0;
-setAttr "CTRL_L_mouth_purseD.translateY" 0;
-setAttr "CTRL_R_mouth_purseU.translateY" 0;
-setAttr "CTRL_L_mouth_purseU.translateY" 0;
-setAttr "CTRL_R_mouth_purseD.translateY" 0;
-setAttr "CTRL_L_mouth_funnelU.translateY" 0;
-setAttr "CTRL_R_mouth_funnelD.translateY" 0;
-setAttr "CTRL_L_mouth_funnelD.translateY" 0;
-setAttr "CTRL_R_mouth_funnelU.translateY" 0;
-setAttr "CTRL_C_jaw.translateX" 0;
-setAttr "CTRL_C_jaw.translateY" 0;
-setAttr "CTRL_L_jaw_clench.translateY" 0;
-setAttr "CTRL_C_jaw_fwdBack.translateY" 0;
-setAttr "CTRL_R_jaw_clench.translateY" 0;
-setAttr "CTRL_L_mouth_lipBiteU.translateY" 0;
-setAttr "CTRL_R_mouth_lipBiteU.translateY" 0;
-setAttr "CTRL_L_mouth_lipBiteD.translateY" 0;
-setAttr "CTRL_R_mouth_lipBiteD.translateY" 0;
-setAttr "CTRL_L_mouth_lipsPressU.translateY" 0;
-setAttr "CTRL_R_mouth_lipsPressU.translateY" 0;
-setAttr "CTRL_L_mouth_tightenU.translateY" 0;
-setAttr "CTRL_R_mouth_tightenD.translateY" 0;
-setAttr "CTRL_L_mouth_tightenD.translateY" 0;
-setAttr "CTRL_R_mouth_tightenU.translateY" 0;
-setAttr "CTRL_C_jaw_openExtreme.translateY" 0;
-setAttr "CTRL_neck_digastricUpDown.translateY" 0;
-setAttr "CTRL_neck_throatUpDown.translateY" 0;
-setAttr "CTRL_neck_throatExhaleInhale.translateY" 0;
-setAttr "CTRL_L_neck_stretch.translateY" 0;
-setAttr "CTRL_R_neck_mastoidContract.translateY" 0;
-setAttr "CTRL_L_neck_mastoidContract.translateY" 0;
-setAttr "CTRL_R_neck_stretch.translateY" 0;
-setAttr "CTRL_C_neck_swallow.translateY" 0;
-setAttr "CTRL_C_tongue_inOut.translateY" 0;
-setAttr "CTRL_C_tongue.translateX" 0;
-setAttr "CTRL_C_tongue.translateY" 0;
-setAttr "CTRL_C_tongue_narrowWide.translateY" 0;
-setAttr "CTRL_C_tongue_press.translateY" 0;
-setAttr "CTRL_C_tongue_roll.translateX" 0;
-setAttr "CTRL_C_tongue_roll.translateY" 0;
-setAttr "CTRL_C_tongue_tip.translateX" 0;
-setAttr "CTRL_C_tongue_tip.translateY" 0;
-setAttr "CTRL_R_mouth_lipsBlow.translateY" 0;
-setAttr "CTRL_L_mouth_lipsBlow.translateY" 0;
-setAttr "CTRL_L_mouth_lipsTogetherU.translateY" 0;
-setAttr "CTRL_R_mouth_lipsTogetherD.translateY" 0;
-setAttr "CTRL_L_mouth_lipsTogetherD.translateY" 0;
-setAttr "CTRL_R_mouth_lipsTogetherU.translateY" 0;
-setAttr "CTRL_L_mouth_pressU.translateY" 0;
-setAttr "CTRL_R_mouth_pressD.translateY" 0;
-setAttr "CTRL_L_mouth_pressD.translateY" 0;
-setAttr "CTRL_R_mouth_pressU.translateY" 0;
-setAttr "CTRL_L_eye_faceScrunch.translateY" 0;
-setAttr "CTRL_R_eye_faceScrunch.translateY" 0;
-setAttr "CTRL_L_eye_eyelidD.translateY" 0;
-setAttr "CTRL_R_eye_eyelidU.translateY" 0;
-setAttr "CTRL_L_eye_eyelidU.translateY" 0;
-setAttr "CTRL_R_eye_eyelidD.translateY" 0;
-setAttr "CTRL_L_eyelashes_tweakerIn.translateY" 0;
-setAttr "CTRL_R_eyelashes_tweakerOut.translateY" 0;
-setAttr "CTRL_L_eyelashes_tweakerOut.translateY" 0;
-setAttr "CTRL_R_eyelashes_tweakerIn.translateY" 0;
-setAttr "CTRL_L_nose_nasolabialDeepen.translateY" 0;
-setAttr "CTRL_R_nose_nasolabialDeepen.translateY" 0;
-setAttr "CTRL_L_mouth_lipsTowardsTeethU.translateY" 0;
-setAttr "CTRL_R_mouth_lipsTowardsTeethD.translateY" 0;
-setAttr "CTRL_L_mouth_lipsTowardsTeethD.translateY" 0;
-setAttr "CTRL_R_mouth_lipsTowardsTeethU.translateY" 0;
-setAttr "CTRL_R_mouth_corner.translateX" 0;
-setAttr "CTRL_R_mouth_corner.translateY" 0;
-setAttr "CTRL_C_mouth_lipShiftU.translateY" 0;
-setAttr "CTRL_C_mouth_lipShiftD.translateY" 0;
-setAttr "CTRL_L_mouth_corner.translateX" 0;
-setAttr "CTRL_L_mouth_corner.translateY" 0;
-setAttr "CTRL_C_teeth_fwdBackU.translateY" 0;
-setAttr "CTRL_C_teeth_fwdBackD.translateY" 0;
-setAttr "CTRL_C_teethU.translateX" 0;
-setAttr "CTRL_C_teethU.translateY" 0;
-setAttr "CTRL_C_teethD.translateX" 0;
-setAttr "CTRL_C_teethD.translateY" 0;
-setAttr "CTRL_R_mouth_lipsRollD.translateY" 0;
-setAttr "CTRL_L_mouth_lipsRollD.translateY" 0;
-setAttr "CTRL_R_mouth_lipsRollU.translateY" 0;
-setAttr "CTRL_L_mouth_lipsRollU.translateY" 0;
-setAttr "CTRL_R_mouth_thicknessD.translateY" 0;
-setAttr "CTRL_L_mouth_thicknessD.translateY" 0;
-setAttr "CTRL_R_mouth_thicknessU.translateY" 0;
-setAttr "CTRL_L_mouth_thicknessU.translateY" 0;
-setAttr "CTRL_R_mouth_cornerSharpnessD.translateY" 0;
-setAttr "CTRL_L_mouth_cornerSharpnessD.translateY" 0;
-setAttr "CTRL_R_mouth_cornerSharpnessU.translateY" 0;
-setAttr "CTRL_L_mouth_cornerSharpnessU.translateY" 0;
-setAttr "CTRL_L_mouth_pushPullU.translateY" 0;
-setAttr "CTRL_R_mouth_pushPullD.translateY" 0;
-setAttr "CTRL_L_mouth_pushPullD.translateY" 0;
-setAttr "CTRL_R_mouth_pushPullU.translateY" 0;       
-}
-
+// TDS-Ah
 
 global proc TDSAh ()
 {
@@ -380,7 +207,7 @@ setAttr "CTRL_L_mouth_lowerLipDepress.translateY" 0.24;
 setAttr "CTRL_R_mouth_lowerLipDepress.translateY" 0.24;
 }
 
-// 02_TDS-Ee
+// TDS-Ee
 
 global proc TDSEe ()
 {
@@ -394,7 +221,7 @@ setAttr "CTRL_L_mouth_lowerLipDepress.translateY" 0.361;
 setAttr "CTRL_R_mouth_lowerLipDepress.translateY" 0.361;
 }
 
-// 03_Ee
+// Ee
 
 global proc Ee ()
 {
@@ -408,7 +235,7 @@ setAttr "CTRL_L_mouth_lowerLipDepress.translateY" 0.336;
 setAttr "CTRL_R_mouth_lowerLipDepress.translateY" 0.336;
 }
 
-// 04_lh
+// lh
 
 global proc lh ()
 {
@@ -422,7 +249,7 @@ setAttr "CTRL_L_mouth_lowerLipDepress.translateY" 0.262;
 setAttr "CTRL_R_mouth_lowerLipDepress.translateY" 0.262;
 }
 
-// 05_Ay
+// Ay
 
 global proc Ay ()
 {
@@ -438,7 +265,7 @@ setAttr "CTRL_L_mouth_lowerLipDepress.translateY" 0.188;
 setAttr "CTRL_R_mouth_lowerLipDepress.translateY" 0.188;
 }
 
-// 06_Eh
+// Eh
 
 global proc Eh ()
 {
@@ -452,7 +279,7 @@ setAttr "CTRL_L_mouth_lowerLipDepress.translateY" 0.114;
 setAttr "CTRL_R_mouth_lowerLipDepress.translateY" 0.114;
 }
 
-// 07_Aa
+// Aa
 
 global proc Aa ()
 {
@@ -466,7 +293,7 @@ setAttr "CTRL_L_mouth_lowerLipDepress.translateY" 0.040;
 setAttr "CTRL_R_mouth_lowerLipDepress.translateY" 0.040;
 }
 
-// 08_Ah
+// Ah
 
 global proc Ah ()
 {
@@ -475,7 +302,7 @@ setAttr "CTRL_L_mouth_upperLipRaise.translateY" 0.094;
 setAttr "CTRL_R_mouth_upperLipRaise.translateY" 0.094;
 }
 
-// 09_Oh
+// Oh
 
 global proc Oh ()
 {
@@ -495,7 +322,7 @@ setAttr "CTRL_L_mouth_purseD.translateY" 0.45;
 setAttr "CTRL_R_mouth_purseU.translateY" 0.45;
 }
 
-// 10_Or
+// Or
 
 global proc Or ()
 {
@@ -519,7 +346,7 @@ setAttr "CTRL_L_mouth_purseD.translateY" 0.675;
 setAttr "CTRL_R_mouth_purseU.translateY" 0.675;
 }
 
-// 11_Oo
+// Oo
 
 global proc Oo ()
 {
@@ -543,7 +370,7 @@ setAttr "CTRL_L_mouth_purseD.translateY" 0.9;
 setAttr "CTRL_R_mouth_purseU.translateY" 0.9;
 }
 
-// 12_Ww-Oo
+// Ww-Oo
 
 global proc WwOo ()
 {
@@ -559,7 +386,7 @@ setAttr "CTRL_L_mouth_purseD.translateY" 0.985;
 setAttr "CTRL_R_mouth_purseU.translateY" 0.985;
 }
 
-// 13_KGY_TDS
+// KGY_TDS
 
 global proc KGYTDS ()
 {
@@ -577,7 +404,7 @@ setAttr "CTRL_L_mouth_upperLipRaise.translateY" 0.305;
 setAttr "CTRL_R_mouth_upperLipRaise.translateY" 0.305;
 }
 
-// 14_Ww_Low
+// Ww_Low
 
 global proc WwLow ()
 {
@@ -593,7 +420,7 @@ setAttr "CTRL_L_mouth_purseD.translateY" 0.985;
 setAttr "CTRL_R_mouth_purseU.translateY" 0.985;
 }
 
-// 15_ChJjSh
+// ChJjSh
 
 global proc ChJjSh ()
 {
@@ -607,7 +434,7 @@ setAttr "CTRL_L_mouth_funnelD.translateY" 0.71;
 setAttr "CTRL_R_mouth_funnelU.translateY" 0.71;
 }
 
-// 16_KGY
+// KGY
 
 global proc KGY ()
 {
@@ -623,7 +450,7 @@ setAttr "CTRL_L_mouth_funnelD.translateY" 0.378;
 setAttr "CTRL_R_mouth_funnelU.translateY" 0.378;
 }
 
-// 17_Ch
+// Ch
 
 global proc Ch ()
 {
@@ -639,7 +466,7 @@ setAttr "CTRL_L_mouth_funnelD.translateY" 0.583;
 setAttr "CTRL_R_mouth_funnelU.translateY" 0.583;
 }
 
-// 18_Ew
+// Ew
 
 global proc Ew ()
 {
@@ -661,7 +488,7 @@ setAttr "CTRL_L_mouth_purseD.translateY" 0.491;
 setAttr "CTRL_R_mouth_purseU.translateY" 0.491;
 }
 
-// 19_Ww-Ew
+// Ww-Ew
 
 global proc WwEw ()
 {
@@ -680,37 +507,39 @@ setAttr "CTRL_L_mouth_purseD.translateY" 0.985;
 setAttr "CTRL_R_mouth_purseU.translateY" 0.985;
 }
 
-// 20_Rr
+// Rr
 
 global proc Rr ()
 {
 setAttr "CTRL_C_jaw.translateY" 0.219;
 setAttr "CTRL_C_jaw_fwdBack.translateY" -0.061;
-setAttr "CTRL_L_jaw_ChinRaiseU.translateY" 0.6;
-setAttr "CTRL_R_jaw_ChinRaiseU.translateY" 0.6;
-setAttr "CTRL_L_mouth_upperLipRaise.translateY" 0.029;
-setAttr "CTRL_R_mouth_upperLipRaise.translateY" 0.029;
+setAttr "CTRL_L_jaw_ChinRaiseD.translateY" 0.6;
+setAttr "CTRL_R_jaw_ChinRaiseD.translateY" 0.6;
 setAttr "CTRL_L_mouth_towardsU.translateY" 0.411;
 setAttr "CTRL_R_mouth_towardsD.translateY" 0.411;
 setAttr "CTRL_L_mouth_towardsD.translateY" 0.411;
 setAttr "CTRL_R_mouth_towardsU.translateY" 0.411;
+setAttr "CTRL_L_mouth_purseU.translateY" 0.2;
+setAttr "CTRL_R_mouth_purseD.translateY" 0.2;
+setAttr "CTRL_L_mouth_purseD.translateY" 0.2;
+setAttr "CTRL_R_mouth_purseU.translateY" 0.2;
 setAttr "CTRL_L_mouth_funnelU.translateY" 0.687;
-setAttr "CTRL_R_mouth_funnelD.translateY" 0.687;
-setAttr "CTRL_L_mouth_funnelD.translateY" 0.687;
 setAttr "CTRL_R_mouth_funnelU.translateY" 0.687;
 setAttr "CTRL_L_mouth_tightenU.translateY" 0.378;
 setAttr "CTRL_R_mouth_tightenD.translateY" 0.378;
 setAttr "CTRL_L_mouth_tightenD.translateY" 0.378;
 setAttr "CTRL_R_mouth_tightenU.translateY" 0.378;
+
+
 }
 
-// 21_Ww-High
+// Ww-High
 
 global proc WwHigh ()
 {
 setAttr "CTRL_C_jaw.translateY" 0.208;
-setAttr "CTRL_L_jaw_ChinRaiseU.translateY" 0.296;
-setAttr "CTRL_R_jaw_ChinRaiseU.translateY" 0.296;
+setAttr "CTRL_L_jaw_ChinRaiseD.translateY" 0.296;
+setAttr "CTRL_R_jaw_ChinRaiseD.translateY" 0.296;
 setAttr "CTRL_L_mouth_upperLipRaise.translateY" 0.210;
 setAttr "CTRL_R_mouth_upperLipRaise.translateY" 0.210;
 setAttr "CTRL_L_mouth_towardsU.translateY" 0.815;
@@ -723,25 +552,25 @@ setAttr "CTRL_L_mouth_purseD.translateY" 0.985;
 setAttr "CTRL_R_mouth_purseU.translateY" 0.985;
 }
 
-// 22_Uh
+// Uh
 
 global proc Uh ()
 {
 setAttr "CTRL_C_jaw.translateY" 0.473;
 setAttr "CTRL_C_jaw_fwdBack.translateY" -0.107;
-setAttr "CTRL_L_jaw_ChinRaiseU.translateY" 0.5;
-setAttr "CTRL_R_jaw_ChinRaiseU.translateY" 0.5;
+setAttr "CTRL_L_jaw_ChinRaiseD.translateY" 0.5;
+setAttr "CTRL_R_jaw_ChinRaiseD.translateY" 0.5;
 setAttr "CTRL_L_mouth_funnelU.translateY" 0.427;
 setAttr "CTRL_R_mouth_funnelU.translateY" 0.427;
 }
 
-// 23_FV_Or
+// FV_Or
 
 global proc FVOr ()
 {
 setAttr "CTRL_C_jaw.translateY" 0.177;
-setAttr "CTRL_L_jaw_ChinRaiseU.translateY" 0.4;
-setAttr "CTRL_R_jaw_ChinRaiseU.translateY" 0.4;
+setAttr "CTRL_L_jaw_ChinRaiseD.translateY" 0.4;
+setAttr "CTRL_R_jaw_ChinRaiseD.translateY" 0.4;
 setAttr "CTRL_L_mouth_upperLipRaise.translateY" 0.088;
 setAttr "CTRL_R_mouth_upperLipRaise.translateY" 0.088;
 setAttr "CTRL_L_mouth_funnelU.translateY" 0.426;
@@ -758,19 +587,42 @@ setAttr "CTRL_L_mouth_purseD.translateY" 0.209;
 setAttr "CTRL_R_mouth_purseU.translateY" 0.209;
 }
 
-// 24_Ur
+// FV
+
+global proc FV ()
+{
+setAttr "CTRL_C_jaw.translateY" 0.166;
+setAttr "CTRL_L_mouth_upperLipRaise.translateY" 0.119;
+setAttr "CTRL_R_mouth_upperLipRaise.translateY" 0.119;
+setAttr "CTRL_L_mouth_dimple.translateY" 0.223;
+setAttr "CTRL_R_mouth_dimple.translateY" 0.223;
+setAttr "CTRL_L_jaw_ChinRaiseD.translateY" 0.319;
+setAttr "CTRL_R_jaw_ChinRaiseD.translateY" 0.319;
+setAttr "CTRL_L_mouth_funnelU.translateY" 0.308;
+setAttr "CTRL_R_mouth_funnelU.translateY" 0.308;
+setAttr "CTRL_L_mouth_lipBiteD.translateY" 0.18;
+setAttr "CTRL_R_mouth_lipBiteD.translateY" 0.18;
+setAttr "CTRL_L_mouth_tightenU.translateY" 0.15;
+setAttr "CTRL_R_mouth_tightenD.translateY" 0.15;
+setAttr "CTRL_L_mouth_tightenD.translateY" 0.15;
+setAttr "CTRL_R_mouth_tightenU.translateY" 0.15;
+setAttr "CTRL_C_jaw_fwdBack.translateY" 0.05;
+
+}
+
+// Ur
 
 global proc Ur ()
 {
 setAttr "CTRL_C_jaw.translateY" 0.473;
 setAttr "CTRL_C_jaw_fwdBack.translateY" -0.107;
-setAttr "CTRL_L_jaw_ChinRaiseU.translateY" 1;
-setAttr "CTRL_R_jaw_ChinRaiseU.translateY" 1;
+setAttr "CTRL_L_jaw_ChinRaiseD.translateY" 1;
+setAttr "CTRL_R_jaw_ChinRaiseD.translateY" 1;
 setAttr "CTRL_L_mouth_funnelU.translateY" 0.427;
 setAttr "CTRL_R_mouth_funnelU.translateY" 0.427;
 }
 
-// 25_FV
+// FV
 
 global proc FV ()
 {
@@ -796,7 +648,7 @@ setAttr "CTRL_L_mouth_purseD.translateY" 0.024;
 setAttr "CTRL_R_mouth_purseU.translateY" 0.024;
 }
 
-// 26_FVEe
+// FVEe
 
 global proc FV_Ee ()
 {
@@ -816,7 +668,7 @@ setAttr "CTRL_L_mouth_lipBiteD.translateY" 0.664;
 setAttr "CTRL_R_mouth_lipBiteD.translateY" 0.664;
 }
 
-// 27_MBP
+// MBP
 
 global proc MBP ()
 {
@@ -834,7 +686,7 @@ setAttr "CTRL_L_mouth_dimple.translateY" 0.051;
 setAttr "CTRL_R_mouth_dimple.translateY" 0.051;
 }
 
-// 28_MBP_Wide
+// MBP_Wide
 
 global proc MBPWide ()
 {
@@ -846,7 +698,7 @@ setAttr "CTRL_L_mouth_pressD.translateY" 0.14;
 setAttr "CTRL_R_mouth_pressU.translateY" 0.14;
 }
 
-// 29_TongueLNTDS
+// TongueLNTDS
 
 global proc TongueLNTDS ()
 {
@@ -861,7 +713,7 @@ setAttr "CTRL_L_mouth_pressD.translateY" 0.14;
 setAttr "CTRL_R_mouth_pressU.translateY" 0.14;
 }
 
-// 30_TongueTh
+// TongueTh
 
 global proc TongueTh ()
 {
@@ -877,7 +729,7 @@ setAttr "CTRL_L_mouth_pressD.translateY" 0.14;
 setAttr "CTRL_R_mouth_pressU.translateY" 0.14;
 }
 
-// 31_TongueKGY
+// TongueKGY
 
 global proc TongueKGY ()
 {
@@ -892,7 +744,7 @@ setAttr "CTRL_L_mouth_pressD.translateY" 0.14;
 setAttr "CTRL_R_mouth_pressU.translateY" 0.14;
 }
 
-// 32_TongueRr
+// TongueRr
 
 global proc TongueRr ()
 {
@@ -1919,10 +1771,12 @@ setAttr "CTRL_L_mouth_lowerLipDepress.translateY" 0.5;
 global proc ROM_M_Mouth_Up ()
 {
 setAttr "CTRL_C_mouth.translateY" 1;
-setAttr "CTRL_L_jaw_ChinRaiseU.translateY" 0.6;
-setAttr "CTRL_R_jaw_ChinRaiseU.translateY" 0.6;
-setAttr "CTRL_L_jaw_ChinRaiseD.translateY" 0.6;
-setAttr "CTRL_R_jaw_ChinRaiseD.translateY" 0.6;
+setAttr "CTRL_L_jaw_ChinRaiseU.translateY" 0.3;
+setAttr "CTRL_R_jaw_ChinRaiseU.translateY" 0.3;
+setAttr "CTRL_L_jaw_ChinRaiseD.translateY" 0.3;
+setAttr "CTRL_R_jaw_ChinRaiseD.translateY" 0.3;
+setAttr "CTRL_L_mouth_sharpCornerPull.translateY" 0.3;
+setAttr "CTRL_R_mouth_sharpCornerPull.translateY" 0.3;
 }
 
 // ROM_M_Show_Teeth
@@ -1945,6 +1799,10 @@ global proc ROM_M_Sad ()
 {
 setAttr "CTRL_R_mouth_cornerDepress.translateY" 1;
 setAttr "CTRL_L_mouth_cornerDepress.translateY" 1;
+setAttr "CTRL_L_jaw_ChinRaiseU.translateY" 0.5;
+setAttr "CTRL_R_jaw_ChinRaiseD.translateY" 0.5;
+setAttr "CTRL_L_jaw_ChinRaiseD.translateY" 0.5;
+setAttr "CTRL_R_jaw_ChinRaiseU.translateY" 0.5;
 }
 
 // ROM_M_Mouth_Open_Lips_Together
