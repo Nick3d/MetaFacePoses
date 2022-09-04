@@ -650,7 +650,7 @@ setAttr "CTRL_R_mouth_purseU.translateY" 0.024;
 
 // FVEe
 
-global proc FV_Ee ()
+global proc FVEe ()
 {
 setAttr "CTRL_C_jaw.translateY" 0.155;
 setAttr "CTRL_C_jaw_fwdBack.translateY" -0.2;
